@@ -23,15 +23,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                 <?php
 
           
-             }else{
-                ?>
-                <script>
-                    alert("Not Sucessfull");
-            
-                </script>
-                <?php
-            }
-
+             }
 
 
 ?>
