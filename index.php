@@ -12,30 +12,38 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     $billamount = $_POST["billamount"];
     $datetime = $_POST["datetime"];
 
+    // Inserting data to php server
+   
     $insertquery ="INSERT INTO `users_data`(`shopname`, `fullname`, `pincode`, `phonenumber`, `address`, `billamount`, `datetime`) VALUES ('$shopname', '$fullname', '$pincode', '$phonenumber', '$address', '$billamount', '$datetime')";
-          $iquery = mysqli_query($conn, $insertquery);
+      $iquery = mysqli_query($conn, $insertquery);
 
-          ?>
-                <script>
-                    alert("Your request has been successfully submited");
-            
-                </script>
-                <?php
+      // Redirecting to thanks page after sucessfull submisson
+
+      ?>
+            <script type="text/javascript">
+            window.location = "thanks.html";
+            </script>
+            <?php
 
           
              }
 
 
+
 ?>
 
-
+<!-- HTML starts from here -->
 
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>
     <meta charset="UTF-8">
     <title>Raxaulsehu Delivery</title>
+
+    <!-- Main css file -->
+
     <link rel="stylesheet" href="style.css">
+    
      <meta name="viewport" content="width=device-width, initial-scale=1.0">
      <meta name="author" content = "Nitin Sharma">
    </head>
@@ -51,7 +59,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
           </div>
           <div class="input-box">
             <span class="details">PinCode</span>
-            <input type="text" placeholder="Enter Customer's Pincode" name="pincode" id="pincode" required>
+            <input type="number" placeholder="Enter Customer's Pincode" name="pincode" id="pincode" required>
           </div>
           <div class="input-box">
             <span class="details">Name</span>
@@ -59,7 +67,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
           </div>
           <div class="input-box">
             <span class="details">Phone Number</span>
-            <input type="text" placeholder="Enter Customer's Phone Number" name="phonenumber" id="phonenumber" required>
+            <input type="number" placeholder="Enter Customer's Phone Number" name="phonenumber" id="phonenumber" required>
           </div>
           <div class="input-box">
             <span class="details">Address</span>
@@ -70,33 +78,34 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
             <input type="text" placeholder="Enter Customer's total bill amount" name="billamount" id="billamount" required>
           </div>
         </div>
-        <div class="gender-details">
-          <input type="radio" name="gender" id="dot-1" name="datetime">
-          <input type="radio" name="gender" id="dot-2" name="datetime"> 
-          <input type="radio" name="gender" id="dot-3" name="datetime">
-          <span class="gender-title">Delivery options</span>
-          <div class="category">
-            <label for="dot-1">
-            <span class="dot one"></span>
-            <span class="gender">Item is ready for delivery</span>
+      <div class="gender-details">
+        <input type="radio" name="gender" id="dot-1" name="datetime">
+        <input type="radio" name="gender" id="dot-2" name="datetime"> 
+        <input type="radio" name="gender" id="dot-3" name="datetime">
+        <span class="gender-title">Delivery options</span>
+        <div class="category">
+          <label for="dot-1">
+          <span class="dot one"></span>
+          <span class="gender">Item is ready for delivery</span>
+        </label>
+        <label for="dot-2">
+          <span class="dot two"></span>
+          <span class="gender">Ready for delivery in 30 min</span>
+        </label>
+        <label for="dot-3">
+          <span class="dot three"></span>
+          <span class="gender">choose custom time</span>
+          <input type="datetime-local" name="datetime">
           </label>
-          <label for="dot-2">
-            <span class="dot two"></span>
-            <span class="gender">Ready for delivery in 30 min</span>
-          </label>
-          <label for="dot-3">
-            <span class="dot three"></span>
-            <span class="gender">choose custom time</span>
-            <input type="datetime-local" name="datetime">
-            </label>
-          </div>
         </div>
-        <div class="button">
-          <input type="submit" value="Submit" name="submit">
-        </div>
-      </form>
-    </div>
+      </div>
+      <div class="button">
+        <input type="submit" value="Submit" name="submit">
+      </div>
+    </form>
   </div>
+</div>
+<!-- HTMl ends here! -->
 
 </body>
 </html>
